@@ -1,0 +1,17 @@
+.greeter {
+    perspective: 300px;
+
+    span {
+        color: rgba(orange, 0.5);
+        display: inline-block;
+        transform: rotateX(30deg);
+        animation: hanging 3s alternate infinite ease-in-out;
+    }
+}
+
+$hang-point: 30%;
+
+@keyframes hanging {
+    0% { transform:  translateY(-$hang-point) rotateX(30deg) translateY($hang-point); }
+    100% { transform: translateY(-$hang-point) rotateX(-30deg) translateY($hang-point); }
+}
