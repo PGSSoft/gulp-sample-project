@@ -1,0 +1,5 @@
+.greeter {
+    font-size: 100px;
+    color: rgba(0,0,0,0);
+    text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
+}

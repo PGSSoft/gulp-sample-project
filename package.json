@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^3.8.11",
+    "gulp-file": "^0.2.0",
     "gulp-recipe-loader": "^1.0.0",
     "gulp-recipe-pipemin-build": "^1.0.0",
     "require-dir": "^0.1.0"
