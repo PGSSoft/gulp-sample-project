@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <title>Gulp!</title>
 
+    <!-- @if target='dev' -->
+    <!-- build:js -->
+    <!-- @endif -->
+
+    <!-- @if target='prod' -->
     <!-- build:js scripts.js -->
+    <!-- @endif -->
     <script src="components/**/*.js"></script>
     <!-- endbuild -->
 
+
+    <!-- @if target='dev' -->
+    <!-- build:css -->
+    <!-- @endif -->
+
+    <!-- @if target='prod' -->
     <!-- build:css styles.css -->
+    <!-- @endif -->
     <link rel="stylesheet" href="components/**/*.css"/>
     <!-- endbuild -->
 
