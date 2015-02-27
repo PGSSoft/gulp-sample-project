@@ -2,14 +2,19 @@
     perspective: 300px;
 
     span {
-        color: rgba(blue, 0.5);
         display: inline-block;
-        transform: rotateX(30deg);
-        animation: hanging 3s alternate infinite ease-in-out;
+        animation: rainbow 29s infinite linear, hanging 3s alternate infinite ease-in-out;
     }
 }
 
 $hang-point: 30%;
+
+$steps: 60;
+@keyframes rainbow {
+  @for $i from 0 through $steps {
+    #{$i/$steps * 100%} { color: hsla($i / $steps * 360deg, 100%, 50%, 0.3)}
+  }
+}
 
 @keyframes hanging {
     0% { transform:  translateY(-$hang-point) rotateX(30deg) translateY($hang-point); }
