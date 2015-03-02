@@ -1,5 +1,7 @@
+@import "sassy-partial";
+
 .greeter {
-    perspective: 300px;
+    @extend %good-perspective;
 
     span {
         display: inline-block;

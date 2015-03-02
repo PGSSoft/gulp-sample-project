@@ -2,8 +2,8 @@
 
 module.exports = function ($, config, sources) {
 
-    // get list of loaded libraries
-    var propNames = Object.getOwnPropertyNames($.__proto__).join('\r\n');
+    // get list of loaded recipes
+    var recipes = Object.getOwnPropertyNames($.recipes).join('\r\n');
 
     $.gulp.task('hello', function () {
         console.log('hello world');
@@ -13,7 +13,7 @@ module.exports = function ($, config, sources) {
         pipes: {
             // generate file and pass it to build hook
             buildLoadedPlugins: $.lazypipe()
-                .pipe($.file, 'loaded-plugins.txt', propNames, {src: true})
+                .pipe($.file, 'used-recipes.txt', recipes, {src: true})
         }
     };
 };
