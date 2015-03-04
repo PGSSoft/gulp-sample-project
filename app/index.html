@@ -1,4 +1,5 @@
 <!doctype html>
+<!--suppress HtmlUnknownTarget -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
     <!-- build:js -->
     <!-- @endif -->
 
-    <!-- @if target='prod' -->
+    <!-- @if target='dist' -->
     <!-- build:js scripts.js -->
     <!-- @endif -->
     <script src="components/**/*.js"></script>
@@ -19,7 +20,7 @@
     <!-- build:css -->
     <!-- @endif -->
 
-    <!-- @if target='prod' -->
+    <!-- @if target='dist' -->
     <!-- build:css styles.css -->
     <!-- @endif -->
     <link rel="stylesheet" href="components/**/*.css"/>
