@@ -26,9 +26,8 @@ sources.js = [
 sources.devAssets = [
     paths.app + 'bower_components/*/*.js',
     paths.app + 'bower_components/*/{dist,min,release}/*.{js,css}', // most of the generic bower modules
-    paths.app + 'components/**/*.js',
-    sources.js,
-    { files: paths.tmp + '**/*', base: paths.tmp }
+    sources.js, // include only when serving non-processed js files
+    { files: paths.tmp + '**/*', base: paths.tmp } // all processed files from temp directory
 ];
 
 // build

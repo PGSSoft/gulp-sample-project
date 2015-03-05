@@ -1,8 +1,20 @@
 {
   "name": "gulp-sample-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sample project with gulp recipe loader and some recipes.",
   "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PGS-dev/gulp-sample-project.git"
+  },
+  "keywords": [
+    "PGS",
+    "gulp",
+    "gulp-receipe",
+    "generator"
+  ],
+  "author": "PGS Front",
+  "license": "ISC",
   "dependencies": {
     "gulp": "^3.8.11",
     "gulp-file": "^0.2.0",
@@ -17,7 +29,5 @@
     "gulp-recipe-sass": "^0.1.1",
     "lodash": "^3.3.1",
     "require-dir": "^0.1.0"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
