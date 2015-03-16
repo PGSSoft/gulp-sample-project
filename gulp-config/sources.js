@@ -4,7 +4,6 @@ var _ = require('lodash');
 var sources = {};
 sources.defaultBase = paths.app;
 
-
 // dev serving
 sources.index = 'app/index.html';
 
@@ -23,17 +22,32 @@ sources.js = [
     paths.app + '*.js'
 ];
 
+var tempFiles = {
+    files: [
+        paths.tmp + '*',
+        paths.tmp + 'components/*'
+    ],
+    base: paths.tmp
+};
+
+var bowerFiles = {
+    files: [
+        paths.app + 'bower_components/*/*.js',
+        paths.app + 'bower_components/*/{dist,min,release}/*.{js,css}' // most of the generic bower modules
+    ],
+    watch: false
+};
+
 sources.devAssets = [
-    paths.app + 'bower_components/*/*.js',
-    paths.app + 'bower_components/*/{dist,min,release}/*.{js,css}', // most of the generic bower modules
-    sources.js, // include only when serving non-processed js files
-    { files: paths.tmp + '**/*', base: paths.tmp } // all processed files from temp directory
+    // include only when serving non-processed js files
+    sources.js,
+    bowerFiles,
+    tempFiles
 ];
 
-// build
+// build assets
 sources.rawAssets = [
-    paths.app + 'bower_components/*/*.js',
-    paths.app + 'bower_components/*/{dist,min,release}/*.{js,css}', // most of the generic bower modules
+    bowerFiles,
     sources.js,
     sources.css
 ];
