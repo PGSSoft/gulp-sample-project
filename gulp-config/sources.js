@@ -1,34 +1,29 @@
 var paths = require('./paths');
 var _ = require('lodash');
-
 var sources = {};
+
 sources.defaultBase = paths.app;
 
 // dev serving
-sources.index = 'app/index.html';
+sources.index = paths.app + 'index.html';
 
+// files handled by sass recipe
 sources.sass = [
     paths.app + 'components/**/*.{sass,scss}',
     paths.app + '*.{sass,scss}'
 ];
 
+// files handled by css recipe
 sources.css = [
     paths.app + 'components/**/*.css',
     paths.app + '*.css'
 ];
 
-sources.js = [
+// split files into variables by categories
+var js = [
     paths.app + 'components/**/*.js',
     paths.app + '*.js'
 ];
-
-var tempFiles = {
-    files: [
-        paths.tmp + '*',
-        paths.tmp + 'components/*'
-    ],
-    base: paths.tmp
-};
 
 var bowerFiles = {
     files: [
@@ -38,18 +33,12 @@ var bowerFiles = {
     watch: false
 };
 
-sources.devAssets = [
-    // include only when serving non-processed js files
-    sources.js,
-    bowerFiles,
-    tempFiles
-];
+// Files not handled by other tasks that need to be passed into pipemin (possibly referenced in index.html).
+// If you don't handle css or js by other tasks, pass them here.
+sources.assets = [bowerFiles, js];
 
-// build assets
-sources.rawAssets = [
-    bowerFiles,
-    sources.js,
-    sources.css
-];
+// Files not handled by other tasks that need to be included into build, bypassing pipemin entirely.
+// These files are also watched in development.
+sources.build = [];
 
 module.exports = sources;
